@@ -1,0 +1,235 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Custom Properties, update these for your own design */
+
+:root {
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+
+    --fw-reg: 400;
+    --fw-bold: 900;
+
+    --clr-light2: #f3f0ec;
+    --clr-light: #ffffff;
+    --clr-dark: #292e41;
+    --clr-accent: #e9ab5a;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: .25em .25em .75em rgba(0, 0, 0, .25),
+        .125em .125em .25em rgba(0, 0, 0, .15);
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+/* General style */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+strong {
+    font-weight: var(--fw-bold);
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {font-size: var(--fs-h1);}
+h2 {font-size: var(--fs-h2);}
+h3 {font-size: var(--fs-h3);}
+
+.section__title {
+    margin-bottom: .25em;
+    letter-spacing: 2px;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--movies {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+}
+
+/* intro */
+
+.intro {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+    background-image: url(../img/background.png);
+    background-size: cover;
+    background-blend-mode:overlay;
+    padding: 5em;
+}
+
+/* Movies */
+
+.movies {
+    background-color: var(--clr-light2);
+    color: var(--clr-light);
+    text-align: center;
+    padding: 2em;
+}
+
+.movieCovers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+}
+
+.movieCovers__img--viewed {
+    opacity: .5;
+}
+
+.overlay {
+    position: absolute;
+    font-size: var(--fs-h2);
+    color: var(--clr-dark);
+    background-color: var(--clr-accent);
+    margin: auto;
+    opacity: 1;
+    line-height: normal;
+    padding: .1em;
+    z-index: 1000;
+    border: 0px solid var(--clr-accent);
+}
+
+#toggle {
+    margin-bottom: 2em;
+}
+
+.movieCovers__item {
+    margin: auto;
+    box-shadow: var(--bs);
+    transition-duration: 250ms ;
+}
+
+.movieCovers__item:focus {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .movieCovers {
+        grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    }
+}
+
+@media (hover: hover) {
+    .movieCovers__item:hover,
+.movieCovers__item:focus .movieCovers__item {
+    transform: translateY(-.5em);
+    transition-duration: 250ms ;
+    cursor: pointer;
+}}
+/* footer */
+
+.footer {
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: .25em;
+    font-size: var(--fs-h3);
+}
+
+.footer a { 
+    color: var(--clr-light);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--clr-accent);
+    text-decoration: underline;
+}
+
+.footer p {
+    font-size: .75rem;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
+}
