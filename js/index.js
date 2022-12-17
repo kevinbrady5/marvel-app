@@ -55,9 +55,9 @@ toggle.addEventListener('click', () => {
 function displayMovies() {
     movies.forEach(movie => {
         console.log(movie.isChecked);
-        if (localStorage.getItem(movie.isChecked == true)){
+        if (sessionStorage.getItem(movie.isChecked == true)){
 
-            console.log(localStorage.getItem(movie.isChecked));
+            console.log(sessionStorage.getItem(movie.isChecked));
 
         }
         let link = document.createElement("a");
@@ -120,7 +120,7 @@ function markAsViewed(movieCover) {
     movies.forEach(movie => {
         if (movie.name == movieCover.id) {
             movie.isChecked = true;
-            localStorage.setItem(movie.isChecked, true);
+            sessionStorage.setItem(movie.isChecked, true);
         }
     });
 }
