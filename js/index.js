@@ -54,13 +54,7 @@ toggle.addEventListener('click', () => {
 
 function displayMovies() {
     movies.forEach(movie => {
-        console.log(movie.isChecked);
-        if (localStorage.getItem(`${movie}Checked` == true)){
-            movie.isChecked = true;
-            console.log("it worked!");
 
-        }
-        console.log(movie.isChecked);
         let link = document.createElement("a");
         link.classList = "movieCovers__item";
         let div = document.createElement("div");
@@ -121,7 +115,6 @@ function markAsViewed(movieCover) {
     movies.forEach(movie => {
         if (movie.name == movieCover.id) {
             movie.isChecked = true;
-            localStorage.setItem(`${movie}Checked`, true);
         }
     });
 }
