@@ -1,5 +1,5 @@
 let movies = [];
-let currentOrder;
+let currentOrder = "release";
 
 class Movie {
     constructor(name, yearReleased, yearTakesPlace, imgFile, isChecked) {
@@ -32,14 +32,15 @@ movies.push(ironMan, incredibleHulk, ironMan2, thor, captainAmerica, avengers, i
 const movieCovers = document.querySelector(".movieCovers");
 const toggle = document.getElementById('toggle');
 
-sortMoviesByYeaReleased();
+//sortMoviesByYeaReleased();
 
 toggle.addEventListener('click', () => {
-    if(currentOrder == "release") {
-        sortMoviesByYearTakesPlace();
-    } else {
-        sortMoviesByYeaReleased();
+    if (currentOrder == "release") {
+        currentOrder = "chronological";
+    } else if (currentOrder == "chronological") {
+        currentOrder = "release";
     }
+    sortMovies(movies);
 });
 
  // Click handler for entire DIV container
@@ -52,7 +53,7 @@ toggle.addEventListener('click', () => {
     }
   });
 
-function displayMovies() {
+function displayMovies(movies) {
     movies.forEach(movie => {
 
         let link = document.createElement("a");
@@ -69,14 +70,19 @@ function displayMovies() {
         link.appendChild(img);
 
         if(movie.isChecked == true) {
-            markAsViewed(img);
+            img.classList = "movieCovers__img--viewed";
+            let icon = document.createElement("p");
+            icon.classList = "overlay";
+            icon.innerHTML = '<i class="fa-solid fa-check"></i>';
+            let viewedDiv = document.getElementById(`${img.id}Div`);
+            viewedDiv.appendChild(icon);
         }
     });
 }
 
-function sortMoviesByYeaReleased() {
+function sortMoviesByYeaReleased(movies) {
     currentOrder = "release";
-    toggle.innerHTML = "Switch to Chronological Order";
+    toggle.innerHTML = '<i class="fa-solid fa-shuffle"></i>' + " Switch to Chronological Order";
     movieCovers.innerHTML = "";
 
     movies.sort(function(a, b){
@@ -86,11 +92,11 @@ function sortMoviesByYeaReleased() {
         return date1 - date2;
     })
 
-    displayMovies();
+    displayMovies(movies);
 }
 
-function sortMoviesByYearTakesPlace() {
-    toggle.innerHTML = "Switch to Release Order";
+function sortMoviesByYearTakesPlace(movies) {
+    toggle.innerHTML = '<i class="fa-solid fa-repeat"></i>' + " Switch to Release Order";
     currentOrder = "chronological";
     movieCovers.innerHTML = "";
     
@@ -101,7 +107,15 @@ function sortMoviesByYearTakesPlace() {
         return date1 - date2;
     })
     
-    displayMovies();
+    displayMovies(movies);
+}
+
+function sortMovies(movies) {
+    if(currentOrder == "release") {
+        sortMoviesByYeaReleased(movies);
+    } else {
+        sortMoviesByYearTakesPlace(movies);
+    }
 }
 
 function markAsViewed(movieCover) {
@@ -117,6 +131,10 @@ function markAsViewed(movieCover) {
             movie.isChecked = true;
         }
     });
+
+    let savedMovies = movies;
+
+    addToLocalStorage(savedMovies);
 }
 
 function markAsNotViewed(movieCover) {
@@ -129,4 +147,31 @@ function markAsNotViewed(movieCover) {
             movie.isChecked = false;
         }
     });
+
+    let savedMovies = movies;
+
+    addToLocalStorage(savedMovies);
 }
+
+// function to add movies to local storage
+function addToLocalStorage(movies) {
+    // conver the array to string then store it.
+    localStorage.setItem('movies', JSON.stringify(movies));
+    // render them to screen
+    sortMovies(movies);
+  }
+
+  // function helps to get everything from local storage
+function getFromLocalStorage() {
+    const reference = localStorage.getItem('movies');
+    // if reference exists
+    if (reference) {
+      // converts back to array and store it in movies array
+      movies = JSON.parse(reference);
+      sortMovies(movies);
+    } else {
+        sortMovies(movies);
+    }
+  }
+  // initially get everything from localStorage
+  getFromLocalStorage();

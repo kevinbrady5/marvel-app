@@ -64,14 +64,17 @@ strong {
 
 .btn {
     display: inline-block;
-    padding: .5em 2.5em;
+    width: fit-content;
+    padding: .5em 1em;
     background: var(--clr-accent);
     color: var(--clr-dark);
     text-decoration: none;
+    border-radius: 20px;
+    box-shadow: var(--bs);
     cursor: pointer;
     font-size: .8rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: var(--fw-bold);
     transition: transform 200ms ease-in-out;
 }
@@ -118,6 +121,11 @@ h3 {font-size: var(--fs-h3);}
     background-size: cover;
     background-blend-mode:overlay;
     padding: 5em;
+}
+
+.title {
+    color: var(--clr-dark);
+    padding-bottom: 1em;
 }
 
 /* Movies */
@@ -170,7 +178,13 @@ h3 {font-size: var(--fs-h3);}
 
 @media (max-width: 900px) {
     .movieCovers {
-        grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .movieCovers {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
 
