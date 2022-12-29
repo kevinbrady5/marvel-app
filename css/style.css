@@ -71,16 +71,27 @@ strong {
     text-decoration: none;
     border-radius: 20px;
     box-shadow: var(--bs);
+    border: none;
     cursor: pointer;
+    font-family: var(--ff-primary);
     font-size: .8rem;
+    line-height: 1.6;
+
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: var(--fw-bold);
     transition: transform 200ms ease-in-out;
 }
 
-.btn:hover {
-    transform: scale(1.1);
+@media (hover: hover) {
+    .btn:hover {
+        transform: scale(1.05);
+       color: var(--clr-light2);
+     }
+  }
+
+.clearBtn {
+    margin-top: 2em;
 }
 
 /* Typography */

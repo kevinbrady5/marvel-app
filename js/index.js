@@ -31,6 +31,7 @@ movies.push(ironMan, incredibleHulk, ironMan2, thor, captainAmerica, avengers, i
 
 const movieCovers = document.querySelector(".movieCovers");
 const toggle = document.getElementById('toggle');
+const clear = document.getElementById('clear');
 
 //sortMoviesByYeaReleased();
 
@@ -42,6 +43,8 @@ toggle.addEventListener('click', () => {
     }
     sortMovies(movies);
 });
+
+clear.addEventListener('click', clearProgress);
 
  // Click handler for entire DIV container
  movieCovers.addEventListener('click', function (e) {
@@ -175,3 +178,10 @@ function getFromLocalStorage() {
   }
   // initially get everything from localStorage
   getFromLocalStorage();
+
+  function clearProgress() {
+    if (confirm("This will clear all items that have been marked as viewed and cannot be undone.") == true){
+    localStorage.clear();
+    window.location = location.href;
+  }
+  }
