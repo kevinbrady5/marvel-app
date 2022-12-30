@@ -180,7 +180,7 @@ function getFromLocalStorage() {
   getFromLocalStorage();
 
   function clearProgress() {
-    if (confirm("This will clear all items that have been marked as viewed and cannot be undone.") == true){
+    if (confirm("This will clear your saved progress and mark all items as not viewed") == true){
     localStorage.clear();
     window.location = location.href;
   }

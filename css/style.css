@@ -16,7 +16,7 @@
     --clr-light2: #f3f0ec;
     --clr-light: #ffffff;
     --clr-dark: #292e41;
-    --clr-accent: #e9ab5a;
+    --clr-accent: #df1137;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -67,7 +67,7 @@ strong {
     width: fit-content;
     padding: .5em 1em;
     background: var(--clr-accent);
-    color: var(--clr-dark);
+    color: var(--clr-light2);
     text-decoration: none;
     border-radius: 20px;
     box-shadow: var(--bs);
@@ -86,7 +86,7 @@ strong {
 @media (hover: hover) {
     .btn:hover {
         transform: scale(1.05);
-       color: var(--clr-light2);
+       color: var(--clr-dark);
      }
   }
 
@@ -125,13 +125,14 @@ h3 {font-size: var(--fs-h3);}
 /* intro */
 
 .intro {
-    background-color: var(--clr-dark);
+    background-color: #b41930;
     color: var(--clr-light);
     text-align: center;
-    background-image: url(../img/background.png);
-    background-size: cover;
-    background-blend-mode:overlay;
-    padding: 5em;
+    padding: 2.5em;
+}
+
+.intro img {
+    margin: auto;
 }
 
 .title {
@@ -162,7 +163,7 @@ h3 {font-size: var(--fs-h3);}
 .overlay {
     position: absolute;
     font-size: var(--fs-h2);
-    color: var(--clr-dark);
+    color: var(--clr-light2);
     background-color: var(--clr-accent);
     margin: auto;
     opacity: 1;
