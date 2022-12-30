@@ -125,21 +125,25 @@ h3 {font-size: var(--fs-h3);}
 /* intro */
 
 .intro {
-    background-color: #b4142b;
     color: var(--clr-light);
     text-align: center;
     background-size: cover;
-    /*background-blend-mode:overlay;*/
     background-image: url(../img/background.png);
-    background-size: cover;
     background-blend-mode:overlay;
     padding: 2.5em;
 }
 
 .intro img {
     margin: auto;
-    mix-blend-mode: darken;
+    mix-blend-mode: overlay;
     width: 75%;
+    max-width: 35em;
+}
+
+@media (max-width: 1200px) {
+    .intro {
+        background-image: url(../img/background2.png);
+    }
 }
 
 .title {
