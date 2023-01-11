@@ -60,6 +60,25 @@ strong {
     font-weight: var(--fw-bold);
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+    position: fixed;
+    width: 100%;
+    background-color: var(--clr-light);
+    z-index: 10000;
+}
+
+.headerLink {
+    text-decoration: none;
+    color: var(--clr-dark);
+}
+
+.logo {
+    width: 8em;
+}
+
 /* Buttons */
 
 .btn {
@@ -94,6 +113,29 @@ strong {
     margin-top: 2em;
 }
 
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 1em; 
+    right: .5em; 
+    z-index: 10001; 
+    border: none; 
+    box-shadow: var(--bs);
+    background-color: var(--clr-accent);
+    color: var(--clr-dark); 
+    cursor: pointer;
+    padding: .75em; 
+    border-radius: 10px; 
+    font-size: var(--fs-h3);
+  }
+
+  @media (hover: hover) {
+    #topBtn:hover {
+        color: var(--clr-light);
+      }
+  }
+
 /* Typography */
 
 h1,
@@ -124,27 +166,14 @@ h3 {font-size: var(--fs-h3);}
 
 /* intro */
 
-.intro {
-    color: var(--clr-light);
-    text-align: center;
-    background-size: cover;
-    background-image: url(../img/background.png);
-    background-blend-mode:overlay;
-    padding: 2.5em;
+header {
+    background-image: url(../img/background4.png);
 }
 
-.intro img {
-    margin: auto;
+header img {
     mix-blend-mode: overlay;
-    width: 75%;
-    max-width: 35em;
 }
 
-@media (max-width: 1200px) {
-    .intro {
-        background-image: url(../img/background2.png);
-    }
-}
 
 .title {
     color: var(--clr-dark);
@@ -158,6 +187,7 @@ h3 {font-size: var(--fs-h3);}
     color: var(--clr-light);
     text-align: center;
     padding: 2em;
+    padding-top: 6em;
 }
 
 .movieCovers {
@@ -224,7 +254,7 @@ h3 {font-size: var(--fs-h3);}
     background: #111;
     color: var(--clr-accent);
     text-align: center;
-    padding: .25em;
+    padding: 1em;
     font-size: var(--fs-h3);
 }
 
