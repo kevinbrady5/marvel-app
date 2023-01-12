@@ -62,7 +62,7 @@ strong {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: .5em;
     position: fixed;
     width: 100%;
